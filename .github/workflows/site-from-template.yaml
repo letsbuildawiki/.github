@@ -21,8 +21,8 @@ jobs:
       - name: "Replace .git"
         run: mv content_repo/.git .git
 
-      - name: "Move docs into src/"
-        run: mv content_repo/docs src/content/
+      - name: "Move docs into content directory"
+        run: rm -rf src/content/docs/; mv content_repo/docs src/content/
 
       - name: "Update placeholder values"
         run: python init_template.py
