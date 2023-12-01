@@ -7,22 +7,22 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: "Checkout repository"
+      - name: "Checkout template"
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
           repository: "letsbuildawiki/template"
 
-      - name: "Remove .git"
-        run: rm -rf .git
-
-      - name: "Checkout repository"
+      - name: "Checkout content"
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
-          clean: false
+          path: content_repo
           fetch-depth: 0
 
+      - name: "Replace .git"
+        run: mv content_repo/.git .git
+
       - name: "Move docs into src/"
-        run: mv docs src/content/
+        run: mv content_repo/docs src/content/
 
       - name: "Update placeholder values"
         run: python init_template.py
