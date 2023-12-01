@@ -1,2 +1,3 @@
 # .github
-Community health files for the @letsbuildawikiorganization
+
+_Community health files for the @letsbuildawiki organization_
