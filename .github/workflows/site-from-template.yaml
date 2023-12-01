@@ -30,6 +30,9 @@ jobs:
       - name: "Move docs into content directory"
         run: rm -rf src/content/docs/; mv content_repo/docs src/content/
 
+      - name: "Move up config.toml"
+        run: mv content_repo/config.toml .
+
       - name: "Update placeholder values"
         run: python init_template.py
 
