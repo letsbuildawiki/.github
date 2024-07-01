@@ -14,12 +14,12 @@ jobs:
           allow-prereleases: true
 
       - name: "Checkout template"
-        uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633 # v4.1.2
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
         with:
           repository: "letsbuildawiki/template"
 
       - name: "Checkout content"
-        uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633 # v4.1.2
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
         with:
           path: content_repo
           fetch-depth: 0
@@ -37,7 +37,7 @@ jobs:
         run: python init_template.py
 
       - name: "Install, build, and upload your site"
-        uses: withastro/action@acfe56dffc635abfb9506c77d51ce097030360d1 # v0.3.0
+        uses: withastro/action@877fd7e5cf5dc5d213f6701c790972aa25452ad3 # v0.3.0
 
   deploy:
     if: ${{ github.ref == 'refs/heads/main' }}
